@@ -1,7 +1,8 @@
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 plugins {
-    kotlin("jvm") version "2.2.10"
+    alias(libs.plugins.kotlinJvm)
+    alias(libs.plugins.benmanesVersions)
 }
 
 group = "bagguley.knes"
@@ -17,8 +18,8 @@ dependencies {
 
 kotlin {
     compilerOptions {
-        apiVersion.set(KotlinVersion.KOTLIN_2_2)
-        languageVersion.set(KotlinVersion.KOTLIN_2_2)
+        apiVersion.set(KotlinVersion.KOTLIN_2_3)
+        languageVersion.set(KotlinVersion.KOTLIN_2_3)
     }
 }
 

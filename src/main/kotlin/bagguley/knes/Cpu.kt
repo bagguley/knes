@@ -1,8 +1,8 @@
 package bagguley.knes
 
-val IRQ_NORMAL = 0
-val IRQ_NMI = 1
-val IRQ_RESET = 2
+const val IRQ_NORMAL = 0
+const val IRQ_NMI = 1
+const val IRQ_RESET = 2
 
 class Cpu(val nes: Nes) {
 
@@ -241,7 +241,7 @@ class Cpu(val nes: Nes) {
                 // Branch on carry set
                 if (F_CARRY == 1){
                     cycleCount += (if ((opaddr and 0xFF00) != (addr and 0xFF00)) 2 else 1)
-                    REG_PC = addr;
+                    REG_PC = addr
                 }
             }
             5 -> {
@@ -249,7 +249,7 @@ class Cpu(val nes: Nes) {
                 // Branch on zero
                 if (F_ZERO == 0) {
                     cycleCount += (if ((opaddr and 0xFF00) != (addr and 0xFF00)) 2 else 1)
-                    REG_PC = addr;
+                    REG_PC = addr
                 }
             }
             6 -> {
@@ -456,7 +456,7 @@ class Cpu(val nes: Nes) {
                 REG_Y = load(addr)
                 F_SIGN = (REG_Y shr 7) and 1
                 F_ZERO = REG_Y
-                cycleCount += cycleAdd;
+                cycleCount += cycleAdd
             }
             32 -> {
                 // LSR
@@ -527,7 +527,7 @@ class Cpu(val nes: Nes) {
                 F_OVERFLOW  = (temp shr 6) and 1
                 F_SIGN      = (temp shr 7) and 1
 
-                F_NOTUSED = 1;
+                F_NOTUSED = 1
             }
             39 -> {
                 // ROL
@@ -651,7 +651,7 @@ class Cpu(val nes: Nes) {
             51 -> {
                 // TAY
                 // Transfer accumulator to index Y:
-                REG_Y = REG_ACC;
+                REG_Y = REG_ACC
                 F_SIGN = (REG_ACC shr 7) and 1
                 F_ZERO = REG_ACC
             }

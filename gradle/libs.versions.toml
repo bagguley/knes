@@ -1,0 +1,7 @@
+[versions]
+benmanesVersions = "0.53.0"
+kotlin = "2.3.10"
+
+[plugins]
+benmanesVersions = { id = "com.github.ben-manes.versions", version.ref = "benmanesVersions" }
+kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

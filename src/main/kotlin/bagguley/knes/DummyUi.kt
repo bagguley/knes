@@ -14,6 +14,9 @@ import javax.swing.JLabel
 import javax.swing.Timer
 import kotlin.experimental.and
 
+const val ROWS: Int = 240
+const val COLS: Int = 256
+
 fun main() {
     DummyUi()
 }
@@ -29,7 +32,7 @@ class MyTimer(val interval: Int, val function: () -> Unit) {
         }
 
         val t = Timer(interval, timeout)
-        t.setRepeats(true)
+        t.isRepeats = true
         t.start()
         return t
     }
@@ -38,10 +41,8 @@ class MyTimer(val interval: Int, val function: () -> Unit) {
         timer.stop()
     }
 }
-class DummyUi : JFrame(), KeyListener {
-    val ROWS: Int = 240
-    val COLS: Int = 256
 
+class DummyUi : JFrame(), KeyListener {
     val image: BufferedImage = BufferedImage(256, 256, BufferedImage.TYPE_INT_RGB)
     val label = JLabel(ImageIcon(image))
 
@@ -58,11 +59,11 @@ class DummyUi : JFrame(), KeyListener {
 
     init {
         setSize(300, 300)
-        setDefaultCloseOperation(EXIT_ON_CLOSE)
-        getContentPane().setLayout(FlowLayout())
-        getContentPane().add(label)
+        defaultCloseOperation = EXIT_ON_CLOSE
+        contentPane.layout = FlowLayout()
+        contentPane.add(label)
         pack()
-        setVisible(true)
+        isVisible = true
 
         addKeyListener(this)
 
